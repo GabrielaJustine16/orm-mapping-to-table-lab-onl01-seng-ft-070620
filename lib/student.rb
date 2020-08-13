@@ -1,30 +1,29 @@
 class Student
-  
-  attr_accessor :name :grade
+
+  attr_accessor :name, :grade
   attr_reader :id 
-  
-  def initialize (name,grade,id=nil)
-    
-    @name=name
-    @grade=grade
-    @id=id
+
+  def initialize(name, grade, id = nil)
+    @name = name 
+    @grade = grade
+    @id = id 
   end 
-  
-  
+
   def self.create_table
-    sql<<-SQL
-    CREATE TABLE IF NOT EXISTS students(
-    id INTEGER PRIMARY KEY,
-    name TEXT,
-    grade INTEGER,
-    );
-    SQL 
+    sql = <<-SQL
+      CREATE TABLE IF NOT EXISTS students (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        grade TEXT
+      );
+    SQL
+
     DB[:conn].execute(sql)
   end 
-  
+
   def self.drop_table
-    sql<<-SQL
-    DROP TABLE IF EXISTS students;
+    sql = <<-SQL
+      DROP TABLE IF EXISTS students;
     SQL
 
     DB[:conn].execute(sql)
@@ -47,10 +46,5 @@ class Student
     student.save 
     student
   end 
-  
-  
-
-
-  
   
 end
