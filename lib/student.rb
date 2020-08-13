@@ -7,7 +7,7 @@ class Student
     
     @name=name
     @grade=grade
-    @id=nil
+    @id=id
   end 
 
   # Remember, you can access your database connection anywhere in this class
