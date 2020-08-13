@@ -22,7 +22,7 @@ class Student
     DB[:conn].execute(sql)
   end 
   
-  def 
+  def self.drop_table
     sql<<-SQL
     DROP TABLE IF EXISTS students;
     SQL
@@ -49,7 +49,7 @@ class Student
   end 
   
   
-  end 
+
 
   
   
